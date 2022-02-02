@@ -18,6 +18,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <h2>CI-CD on AWS ECS</h2>
     </div>
   );
 }
