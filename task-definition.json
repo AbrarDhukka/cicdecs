@@ -64,7 +64,7 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:452148101414:task-definition/testapp-task:20",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:452148101414:task-definition/testapp-task:24",
   "family": "testapp-task",
   "requiresAttributes": [
     {
@@ -105,7 +105,7 @@
   "networkMode": "awsvpc",
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 20,
+  "revision": 24,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
