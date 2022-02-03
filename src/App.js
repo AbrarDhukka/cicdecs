@@ -18,7 +18,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <h2>1st CI-CD on AWS ECS (1st-update)</h2>
+      <h2>1st CI-CD on AWS ECS (1st  update)</h2>
     </div>
   );
 }
