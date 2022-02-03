@@ -34,7 +34,7 @@ on:
 env:
   AWS_REGION: us-east-1                   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: aaic-dev-repo           # set this to your Amazon ECR repository name
-  ECS_SERVICE: aaic-dev-service                 # set this to your Amazon ECS service name
+  ECS_SERVICE: aaic-blue-green                 # set this to your Amazon ECS service name
   ECS_CLUSTER: aaic-dev-cluster                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: task-definition.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
@@ -90,3 +90,14 @@ jobs:
         service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: true
+        
+    - name: Deploy to Amazon ECS
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+         task-definition: task-definition.json
+         service: ${{ env.ECS_SERVICE }}
+         cluster: ${{ env.ECS_CLUSTER }}
+         wait-for-service-stability: true
+         codedeploy-appspec: appspec.yml
+         codedeploy-application: AppECS-aaic-dev-cluster-aaic-blue-green
+         codedeploy-deployment-group: DgpECS-aaic-dev-cluster-aaic-blue-green
